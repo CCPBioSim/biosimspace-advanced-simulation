@@ -13330,7 +13330,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Note that the free energy increases beyond 0.6 nm because of the upper bound that we've imposed.</p>
-<p>Extract a confugration from the basin near 0.25 nm:</p>
+<p>Sample confugrations from the basin near 0.25 nm:</p>
 
 </div>
 </div>
@@ -13341,7 +13341,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bounds</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.225</span><span class="o">*</span><span class="n">BSS</span><span class="o">.</span><span class="n">Units</span><span class="o">.</span><span class="n">Length</span><span class="o">.</span><span class="n">nanometer</span><span class="p">,</span> <span class="mf">0.275</span><span class="o">*</span><span class="n">BSS</span><span class="o">.</span><span class="n">Units</span><span class="o">.</span><span class="n">Length</span><span class="o">.</span><span class="n">nanometer</span><span class="p">)]</span>
-<span class="n">snapshots</span><span class="p">,</span> <span class="n">colvars</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">sampleConfigurations</span><span class="p">(</span><span class="n">bounds</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">configs</span><span class="p">,</span> <span class="n">colvars</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">sampleConfigurations</span><span class="p">(</span><span class="n">bounds</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13352,7 +13352,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>View the first snapshot (ions only):</p>
+<p>View the first configuration (ions only):</p>
 
 </div>
 </div>
@@ -13362,9 +13362,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">snapshot</span> <span class="o">=</span> <span class="n">snapshots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">snapshot</span><span class="o">.</span><span class="n">removeWaterMolecules</span><span class="p">()</span>
-<span class="n">view</span> <span class="o">=</span> <span class="n">BSS</span><span class="o">.</span><span class="n">Notebook</span><span class="o">.</span><span class="n">View</span><span class="p">(</span><span class="n">snapshot</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">configs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">config</span><span class="o">.</span><span class="n">removeWaterMolecules</span><span class="p">()</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">BSS</span><span class="o">.</span><span class="n">Notebook</span><span class="o">.</span><span class="n">View</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 <span class="n">view</span><span class="o">.</span><span class="n">system</span><span class="p">()</span>
 </pre></div>
 
