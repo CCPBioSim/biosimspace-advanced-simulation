@@ -13587,7 +13587,16 @@ div#notebook {
 <li>It is useful to adjust the width of the Gaussian hills used to sample the free energy landscape so that you can resolve features of interest. For this simulation, choose a hill width of 0.02 nm.</li>
 <li>Metadynamics simulations can be run on a <em>grid</em> to help reduce the computational cost as the simulation progresses. (From accumulating the bias potential.) Define a grid between 0 and 1 nm to use for this simulation.</li>
 <li>You can run <em>well-tempered</em> metadynamics by setting a bias factor in the protocol. Here the height of the Gaussian hills are adaptively decreased over time such that the bias converges in the long-time limit. The bias factor should be chosen to be larger than the highest barrier you expect in the system (in units of $k_\mathrm{B}T$). In this system the largest barrier is expected to be around $5k_\mathrm{B}T$, so a bias factor of 5 should work well.</li>
+<li>On the notebook server we have restricted GROMACS to one MPI thread and two OpenMP threads per MPI thread. Depending on how many attendees there are, we might be able to use more resources per user to make your simulations go faster. To increase the number of OpenMP threads you can do something like the following:</li>
 </ul>
+<div class="highlight"><pre><span></span><span class="c1"># Initialise a metadynamics process but don&#39;t start it.</span>
+<span class="n">process</span> <span class="o">=</span> <span class="n">BSS</span><span class="o">.</span><span class="n">Metadynamics</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="n">protocol</span><span class="p">,</span> <span class="n">auto_start</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="c1"># Configure the GROMACS command-line arguments to use 4 OpenMP threads per MPI thread.</span>
+<span class="n">process</span><span class="o">.</span><span class="n">setArg</span><span class="p">(</span><span class="s2">&quot;-ntomp&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="c1"># Start the process.</span>
+<span class="n">process</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+<p>(Note that you can't set the number of OpenMP threads for a vacuum simulation, you can only partition space when there is a periodic box. Please don't use a very large number of threads or you will slow the server down for other users.)</p>
 <p>If you get stuck, an answer can be found <a href="answers/metadynamics_solution.ipynb">here</a>.</p>
 
 </div>

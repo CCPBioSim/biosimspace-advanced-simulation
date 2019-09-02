@@ -13275,7 +13275,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">process</span> <span class="o">=</span> <span class="n">BSS</span><span class="o">.</span><span class="n">Metadynamics</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="n">protocol</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">process</span> <span class="o">=</span> <span class="n">BSS</span><span class="o">.</span><span class="n">Metadynamics</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="n">protocol</span><span class="p">,</span> <span class="n">auto_start</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># Uncomment the line below to increase the number of threads used by GROMACS.</span>
+<span class="c1">#process.setArg(&quot;-ntomp&quot;, 4)</span>
+<span class="n">process</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </pre></div>
 
     </div>
