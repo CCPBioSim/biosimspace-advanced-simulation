@@ -21,12 +21,15 @@ Metadynamics is an advanced simulation method that can be used to bypass large f
 
 ## Training Material
 
-The workshop consists of a series of Jupyter notebooks. These are available on the
-<a href="https://notebook.biosimspace.org" target="_blank">workshop jupyter server</a>
-and can be downloaded from the <a href="https://github.com/ccpbiosim/biosimspace-advanced-simulation" target="_blank">GitHub repository</a>.
+The workshop consists of a series of Jupyter notebooks. To run these, you will
+first need to create a BioSimSpace conda environment:
 
-Once you have started the server, navigate to the `workshops/advanced` directory and you will find the
-notebooks there. These training materials will teach you more about BioSimSpace, including how to write your own BioSimSpace code. The material is split into two parts.
+```
+conda create -n openbiosim -c conda-forge -c openbiosim biosimspace=2023.1.0
+conda activate openbiosim
+```
+
+These training materials will teach you more about BioSimSpace, including how to write your own BioSimSpace code. The material is split into two parts.
 
 ### Part 1: Alchemical Free Energy Setup
 
